@@ -1,26 +1,16 @@
 
-import Counter from './components/Counter';
-import AuthForm from './components/AuthForm';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import UserProfile from './components/UserProfile';
-
-
+import { useSelector } from 'react-redux';
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
 
 function App() {
+  const showCart=useSelector(state=>state.ui.cartIsVisible)
   return (
-    <>
-    <BrowserRouter>
-    <Routes>
-      
-    {/* <AuthForm/> */}
-    {/* <Counter /> */}
-    <Route path="/" element={<AuthForm />} />
-        <Route path="/counter" element={<Counter />} />
-    <Route path='/userprofile' element={<UserProfile/>}/>
-    </Routes>
-    </BrowserRouter>
-    </>
-
+    <Layout>
+    { showCart && <Cart />}
+      <Products />
+    </Layout>
   );
 }
 

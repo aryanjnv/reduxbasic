@@ -2,6 +2,7 @@
 import {createStore}  from 'redux';
 import { createSlice,configureStore } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router';
+import uiSlice from './ui-slice';
 
    
 
@@ -35,7 +36,7 @@ import { useNavigate } from 'react-router';
   
 
   const store=configureStore({
-    reducer:counterSlice.reducer
+    reducer:{counter:counterSlice.reducer,ui:uiSlice.reducer}
   });
 
   export const {increment,decrement,increaseCounter,toggleCounter,AuthenticationHandler}=counterSlice.actions 
