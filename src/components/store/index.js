@@ -3,6 +3,7 @@ import {createStore}  from 'redux';
 import { createSlice,configureStore } from '@reduxjs/toolkit';
 import { useNavigate } from 'react-router';
 import uiSlice from './ui-slice';
+import cartSlice from './cart-slice';
 
    
 
@@ -36,7 +37,10 @@ import uiSlice from './ui-slice';
   
 
   const store=configureStore({
-    reducer:{counter:counterSlice.reducer,ui:uiSlice.reducer}
+    reducer:{counter:counterSlice.reducer,
+      ui:uiSlice.reducer,
+      cart:cartSlice.reducer
+    }
   });
 
   export const {increment,decrement,increaseCounter,toggleCounter,AuthenticationHandler}=counterSlice.actions 
